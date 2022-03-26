@@ -29,6 +29,7 @@ public class OperasalesApplication {
 
         Ticket ticket = operaRepozitory.buy(pr.getName());
 
+
         System.out.println("Вы приобрели билет:");
 
         System.out.println(ticket);
