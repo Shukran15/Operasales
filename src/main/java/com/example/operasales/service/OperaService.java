@@ -22,6 +22,7 @@ public class OperaService {
     public void addPr(Primera pr) {
         operaRepository.save(pr);
 
+
     }
 
     public void printAll() {
