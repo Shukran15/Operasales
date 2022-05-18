@@ -2,6 +2,7 @@ package com.example.operasales.service;
 
 import com.example.operasales.model.Primera;
 import com.example.operasales.model.Ticket;
+import com.example.operasales.repository.OperaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +14,17 @@ public class OperaService {
 
 
     @Autowired
-    private ArrayList<Primera> prs;
+    private OperaRepository operaRepository;
 
 
 
     public void addPr(Primera pr) {
-        prs.add(pr);
+        operaRepository.save(pr);
 
     }
 
     public void printAll() {
-        for (Primera primera : prs) {
+        for (Primera primera : operaRepository.getAll()) {
             System.out.println(primera);
         }
     }
@@ -31,7 +32,7 @@ public class OperaService {
 
 
     public void minusplace(long id) {
-        for (Primera primera : prs) {
+        for (Primera primera : operaRepository.getAll()) {
             if (primera.getId() == id) {
                 primera.setFreeplace(primera.getFreeplace() - 1);
             }
@@ -39,7 +40,7 @@ public class OperaService {
     }
 
     public void plusplace(long id) {
-        for (Primera primera : prs) {
+        for (Primera primera : operaRepository.getAll()) {
             if (primera.getId() == id) {
                 primera.setFreeplace(primera.getFreeplace() + 1);
             }
@@ -47,16 +48,16 @@ public class OperaService {
     }
 
     public void minusprimera(long id) {
-        for (Primera primera : prs) {
+        for (Primera primera : operaRepository.getAll()) {
             if (primera.getId() == id) {
-                prs.remove(primera);
+                operaRepository.removeById(primera.getId());
                 break;
             }
         }
     }
 
     public void printPrimera(String name) {
-        for (Primera primera : prs) {
+        for (Primera primera : operaRepository.getAll()) {
             if (primera.getName().equals(name)) {
                 System.out.println(primera);
             }
@@ -68,7 +69,7 @@ public class OperaService {
 
         Random random = new Random();
         Ticket t = null;
-        for (Primera primera : prs) {
+        for (Primera primera : operaRepository.getAll()) {
             if (primera.getName().equals(name)) {
                 int place = random.nextInt(120);
                 t = new Ticket(primera, 100, place);
@@ -89,7 +90,7 @@ public class OperaService {
     }
 
     public Primera getPremieraById(long id) {
-        for (Primera primera : prs) {
+        for (Primera primera : operaRepository.getAll()) {
             if (primera.getId() == id) {
                 return primera;
             }

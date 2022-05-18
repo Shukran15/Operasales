@@ -19,11 +19,12 @@ public class OperaRepository {
 
 
 
+   // @Autowired(required = false)
     private ArrayList<Primera> prs;
 
     {
 
-        ArrayList<Primera> prs = new ArrayList<>();
+        this.prs = new ArrayList<>();
         Primera primera1 = new Primera(1L, "Мастер и Маргарита", "Мюзикл, балет", R, 100);
         Primera primera2 = new Primera(2L, "Лебединное озеро", "Мюзикл, балет", PG, 120);
         prs.add(primera1);
