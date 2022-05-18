@@ -1,4 +1,4 @@
-package com.example.Operasales;
+package com.example.operasales.model;
 
 public class Ticket {
 

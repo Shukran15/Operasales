@@ -1,16 +1,21 @@
-package com.example.Operasales;
+package com.example.operasales.service;
 
+import com.example.operasales.model.Primera;
+import com.example.operasales.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-@Repository
-public class OperaRepozitory {
+@Service
+public class OperaService {
+
 
     @Autowired
     private ArrayList<Primera> prs;
+
+
 
     public void addPr(Primera pr) {
         prs.add(pr);
@@ -22,6 +27,8 @@ public class OperaRepozitory {
             System.out.println(primera);
         }
     }
+
+
 
     public void minusplace(long id) {
         for (Primera primera : prs) {
@@ -92,5 +99,3 @@ public class OperaRepozitory {
     }
 
 }
-
-

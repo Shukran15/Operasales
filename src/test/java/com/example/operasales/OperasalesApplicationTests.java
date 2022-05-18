@@ -1,4 +1,4 @@
-package com.example.Operasales;
+package com.example.operasales;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
